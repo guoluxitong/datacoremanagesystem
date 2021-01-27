@@ -7,6 +7,7 @@ import start from '../components/start'
 import home from '../components/start/components/home'
 //
 import enterpriselist from '../components/core/enterprise/list'
+import devicelist from '../components/data/wechat/device/list'
 //
 Vue.use(VueRouter)
 
@@ -26,7 +27,13 @@ const router = new VueRouter({
         children: [
             { path: 'enterprise', component: enterpriselist, name: 'enterpriselist', title: '企业管理' }
         ]
-    }
+    },
+        {
+            path: '/data', component: start, name: 'data', title: '数据跟踪',
+            children: [
+                { path: 'wechat/device', component: devicelist, name: 'devicelist', title: '用户数据分析' }
+            ]
+        }
         ,
     {
         path: '/enterprise', component: start, name: 'enterprise', title: '企业数据管理'
